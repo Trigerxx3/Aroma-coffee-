@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-serif: var(--font-cormorant), "Georgia", serif;
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+
+  /* Core Warm Ivory Palette */
+  --color-ivory: #F9F6F1;
+  --color-ivory-dark: #F2EDE4;
+  --color-parchment: #EBE4D8;
+  --color-linen: #E0D5C3;
+
+  /* Espresso Typography */
+  --color-espresso: #1A1208;
+  --color-espresso-soft: #2E2115;
+  --color-roast: #4A3728;
+  --color-ash: #7A6A5A;
+
+  /* Caramel Accent */
+  --color-caramel: #B07040;
+  --color-caramel-light: #C98A50;
+  --color-caramel-pale: #DEB88A;
+
+  /* Charcoal Contrast */
+  --color-charcoal: #2C2820;
+  --color-mist: #9B8E82;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---- Base reset ---- */
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #100e0b;
+  color: #F9F6F1;
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- Custom scrollbar ---- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #100e0b; }
+::-webkit-scrollbar-thumb { background: #3C2415; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #B07040; }
+
+::selection { background-color: #B07040; color: #FFFFFF; }
+
+/* ── Blood Aurora Aura Gradient ── */
+.aura-bg {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  /* NO background-color - layers blend against body */
+}
+
+/* Layer 1 - screen */
+.aura-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(154deg, transparent 18%, rgba(60,10,10,0.06) 29%, rgba(255,40,0,0.40) 36%, rgb(255,255,255) 42%, rgba(207,60,20,0.32) 48%, rgba(158,20,10,0.22) 55%, rgba(255,90,0,0.30) 62%, rgba(60,15,10,0.08) 68%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(85px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 2 - screen */
+.aura-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(128deg, transparent 28%, rgba(80,10,20,0.06) 38%, rgba(255,80,0,0.35) 43%, rgb(255,255,255) 48%, rgba(200,60,30,0.22) 52%, rgba(255,40,0,0.25) 57%, rgba(90,20,10,0.10) 62%, transparent 76%);
+  mix-blend-mode: screen;
+  filter: blur(75px);
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 3 - screen */
+.aura-layer-3 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 78% 20% at 51% 53%, rgba(200,50,20,0.24) 0%, rgba(100,20,10,0.10) 45%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(70px);
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 4 - screen */
+.aura-layer-4 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 48% 9% at 52% 50%, rgba(255,220,190,0.14) 0%, rgba(200,80,50,0.06) 45%, transparent 80%);
+  mix-blend-mode: screen;
+  filter: blur(175px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 5 - multiply */
+.aura-layer-5 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,1,1,0.90) 0%, rgba(5,1,1,0.58) 28%, rgba(5,1,1,0.20) 55%, transparent 78%);
+  mix-blend-mode: multiply;
+  filter: blur(80px);
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 6 - screen */
+.aura-layer-6 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 28% at 72% 18%, rgba(150,90,20,0.10) 0%, rgba(100,60,10,0.04) 45%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(138px);
+  opacity: 0.7;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Film-grain overlay - SVG feTurbulence noise, overlay blend */
+.aura-grain {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .aura-layer-1 { filter: blur(122px); }
+  .aura-layer-2 { filter: blur(108px); }
+  .aura-layer-3 { filter: blur(101px); }
+  .aura-layer-4 { filter: blur(252px); }
+  .aura-layer-5 { filter: blur(115px); }
+  .aura-layer-6 { filter: blur(198px); }
+}
+
+/* ---- Utility: section divider line ---- */
+.divider-thin {
+  width: 40px;
+  height: 1px;
+  background: #B07040;
+  display: block;
+}
+
+/* ---- Premium hover image zoom ---- */
+.img-zoom img,
+.img-zoom > div > img {
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover img,
+.img-zoom:hover > div > img {
+  transform: scale(1.05);
 }

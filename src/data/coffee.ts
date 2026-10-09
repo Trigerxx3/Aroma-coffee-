@@ -1,0 +1,43 @@
+import { CoffeeBean } from '@/types';
+
+export const signatureCoffees: CoffeeBean[] = [
+  {
+    id: 'espresso',
+    name: 'ESPRESSO',
+    tagline: 'Rich, balanced and intense',
+    description: 'A concentrated extraction of our signature house roast. Features a velvety, golden crema with a deep chocolate backbone and vibrant mandarin brightness.',
+    price: 140,
+    origin: 'Huila, Colombia & Yirgacheffe, Ethiopia',
+    elevation: '1,850m MASL',
+    process: 'Washed / Honey Micro-lot',
+    roastLevel: 'Medium',
+    notes: ['Dark Cacao', 'Toasted Hazelnut', 'Candied Orange', 'Panela'],
+    image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'pour-over',
+    name: 'POUR OVER',
+    tagline: 'Clean, bright and aromatic',
+    description: 'Precision brewed on Hario V60 using single-origin beans. Emphasizes floral aromatics, silky tea-like body, and clean fruit-forward finish.',
+    price: 220,
+    origin: 'Sidama Bensa, Ethiopia',
+    elevation: '2,100m MASL',
+    process: 'Natural Anaerobic Fermentation',
+    roastLevel: 'Light',
+    notes: ['Jasmine Floral', 'Bergamot', 'White Peach', 'Wild Honey'],
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'cold-brew',
+    name: 'COLD BREW',
+    tagline: 'Smooth, refreshing and naturally sweet',
+    description: 'Steeped for 18 slow hours in cold filtered mountain water. Delivers ultra-low acidity with rich chocolate-malt tones and a naturally sweet, velvety finish.',
+    price: 200,
+    origin: 'Antigua Valley, Guatemala',
+    elevation: '1,600m MASL',
+    process: 'Fully Washed Sun-Dried',
+    roastLevel: 'Medium-Dark',
+    notes: ['Bourbon Vanilla', 'Dark Cherry', 'Roasted Almond', 'Brown Sugar'],
+    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=1000&auto=format&fit=crop',
+  },
+];
